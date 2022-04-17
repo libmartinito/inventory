@@ -2,4 +2,16 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
+  p Welcome to #[em HallowList], an inventory management application built with Express and MongoDB.
+
+  h2 Categories: 
+
+    if error 
+      p Error getting dynamic content 
+    else 
+      p The application has the following categories 
+
+      ul 
+        each category in category_list 
+          li 
+            a(href=category.url) #{category.name}

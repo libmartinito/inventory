@@ -10,7 +10,7 @@ const ItemSchema = new Schema({
 
 // virtual property for a book's URL
 ItemSchema.virtual("url").get(function () {
-  return "/" + this._id;
+  return "/inventory/items/" + this._id;
 });
 
 // export model

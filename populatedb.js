@@ -83,149 +83,155 @@ const categoryCreate = (name, description, cb) => {
   });
 };
 
-const createCategories = () => {
-  async.series([
-    (callback) => {
-      categoryCreate(
-        "Upgrade",
-        "Items used to enhance your status such as health, soul and your equipment.",
-        callback
-      );
-    },
-    (callback) => {
-      categoryCreate(
-        "Trade",
-        "Items that can be exchanged into Geo.",
-        callback
-      );
-    },
-    (callback) => {
-      categoryCreate(
-        "Quest",
-        "Items that are used as an aid to traverse and explore the depths of Hallownest.",
-        callback
-      );
-    },
-    (callback) => {
-      categoryCreate(
-        "Key",
-        "Items that are used to unlock certain doors within Hallownest.",
-        callback
-      );
-    },
-    (callback) => {
-      categoryCreate(
-        "Charm",
-        "These are special items that provide you with buffs that help with both traversing Hallownest and battling its foes.",
-        callback
-      );
-    },
-  ]);
+const createCategories = (cb) => {
+  async.series(
+    [
+      (callback) => {
+        categoryCreate(
+          "Upgrade",
+          "Items used to enhance your status such as health, soul and your equipment.",
+          callback
+        );
+      },
+      (callback) => {
+        categoryCreate(
+          "Trade",
+          "Items that can be exchanged into Geo.",
+          callback
+        );
+      },
+      (callback) => {
+        categoryCreate(
+          "Quest",
+          "Items that are used as an aid to traverse and explore the depths of Hallownest.",
+          callback
+        );
+      },
+      (callback) => {
+        categoryCreate(
+          "Key",
+          "Items that are used to unlock certain doors within Hallownest.",
+          callback
+        );
+      },
+      (callback) => {
+        categoryCreate(
+          "Charm",
+          "These are special items that provide you with buffs that help with both traversing Hallownest and battling its foes.",
+          callback
+        );
+      },
+    ],
+    cb
+  );
 };
 
-const createItems = () => {
-  async.parallel([
-    (callback) => {
-      itemCreate(
-        "Gathering Swarm",
-        "A swarm will follow the bearer and gather up any loose Geo. Useful for those who can’t bear to leave anything behind, no matter how significant.",
-        categories[4],
-        300,
-        1,
-        callback
-      );
-    },
-    (callback) => {
-      itemCreate(
-        "Stalwart Shell",
-        "Builds resilience. When recovering from damage, the bearer will remain invulnerable for longer. Makes it easier to escape from dangerous situations.",
-        categories[4],
-        200,
-        1,
-        callback
-      );
-    },
-    (callback) => {
-      itemCreate(
-        "Sprintmaster",
-        "Bears the likeness of a strange bug known only as ‘The Sprintmaster’. Increases the running speed of the bearer, allowing them to avoid danger or overtake rivals.",
-        categories[4],
-        400,
-        1,
-        callback
-      );
-    },
-    (callback) => {
-      itemCreate(
-        "Heavy Blow",
-        "Farmed from the nails of fallen warriors. Increase the force of the bearer’s nail, causing enemies to recoil further when hit.",
-        categories[4],
-        350,
-        1,
-        callback
-      );
-    },
-    (callback) => {
-      itemCreate(
-        "Lumafly Lantern",
-        "Crystal lantern ocntaining a Lumafly. Brightens dark caverns so wanderers can find their way.",
-        categories[2],
-        1800,
-        1,
-        callback
-      );
-    },
-    (callback) => {
-      itemCreate(
-        "Simple Key",
-        "Simply, a simple key. It will fit a variety of locks, which is useful if you like to poke around in places you don’t belong.",
-        categories[3],
-        950,
-        1,
-        callback
-      );
-    },
-    (callback) => {
-      itemCreate(
-        "Elegant Key",
-        "An explorer found this fancy key floating in the waterways of the city far below us. I’ve not cleaned it.",
-        categories[3],
-        800,
-        1,
-        callback
-      );
-    },
-    (callback) => {
-      itemCreate(
-        "Rancid Egg",
-        "Fatty, rancid egg of an unknown creature.",
-        categories[1],
-        60,
-        1,
-        callback
-      );
-    },
-    (callback) => {
-      itemCreate(
-        "Mask Shard",
-        "A shard of an ancient mask, worn to protect oneself from harm.",
-        categories[0],
-        150,
-        1,
-        callback
-      );
-    },
-    (callback) => {
-      itemCreate(
-        "Vessel Fragment",
-        "Fragment of a white vessel made to contain soul.",
-        categories[0],
-        900,
-        1,
-        callback
-      );
-    },
-  ]);
+const createItems = (cb) => {
+  async.parallel(
+    [
+      (callback) => {
+        itemCreate(
+          "Gathering Swarm",
+          "A swarm will follow the bearer and gather up any loose Geo. Useful for those who can’t bear to leave anything behind, no matter how significant.",
+          categories[4],
+          300,
+          1,
+          callback
+        );
+      },
+      (callback) => {
+        itemCreate(
+          "Stalwart Shell",
+          "Builds resilience. When recovering from damage, the bearer will remain invulnerable for longer. Makes it easier to escape from dangerous situations.",
+          categories[4],
+          200,
+          1,
+          callback
+        );
+      },
+      (callback) => {
+        itemCreate(
+          "Sprintmaster",
+          "Bears the likeness of a strange bug known only as ‘The Sprintmaster’. Increases the running speed of the bearer, allowing them to avoid danger or overtake rivals.",
+          categories[4],
+          400,
+          1,
+          callback
+        );
+      },
+      (callback) => {
+        itemCreate(
+          "Heavy Blow",
+          "Farmed from the nails of fallen warriors. Increase the force of the bearer’s nail, causing enemies to recoil further when hit.",
+          categories[4],
+          350,
+          1,
+          callback
+        );
+      },
+      (callback) => {
+        itemCreate(
+          "Lumafly Lantern",
+          "Crystal lantern ocntaining a Lumafly. Brightens dark caverns so wanderers can find their way.",
+          categories[2],
+          1800,
+          1,
+          callback
+        );
+      },
+      (callback) => {
+        itemCreate(
+          "Simple Key",
+          "Simply, a simple key. It will fit a variety of locks, which is useful if you like to poke around in places you don’t belong.",
+          categories[3],
+          950,
+          1,
+          callback
+        );
+      },
+      (callback) => {
+        itemCreate(
+          "Elegant Key",
+          "An explorer found this fancy key floating in the waterways of the city far below us. I’ve not cleaned it.",
+          categories[3],
+          800,
+          1,
+          callback
+        );
+      },
+      (callback) => {
+        itemCreate(
+          "Rancid Egg",
+          "Fatty, rancid egg of an unknown creature.",
+          categories[1],
+          60,
+          1,
+          callback
+        );
+      },
+      (callback) => {
+        itemCreate(
+          "Mask Shard",
+          "A shard of an ancient mask, worn to protect oneself from harm.",
+          categories[0],
+          150,
+          1,
+          callback
+        );
+      },
+      (callback) => {
+        itemCreate(
+          "Vessel Fragment",
+          "Fragment of a white vessel made to contain soul.",
+          categories[0],
+          900,
+          1,
+          callback
+        );
+      },
+    ],
+    cb
+  );
 };
 
 async.series(
