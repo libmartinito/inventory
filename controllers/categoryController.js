@@ -4,7 +4,7 @@ const async = require("async");
 
 // display a list of all categories
 
-exports.index = (req, res) => {
+exports.index = (req, res, next) => {
   // the find function takes three parameters: one for filtering
   // the documents, one for the query projection (what fileds are
   // included), and another for other options such as limit or skip
